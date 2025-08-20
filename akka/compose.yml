@@ -15,14 +15,16 @@ services:
       timeout: 5s
 
   helloworld-agent:
-    image: helloworld-agent:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: helloworld-agent
     depends_on:
       - postgres-db
     ports:
       - "9000:9000"
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+    secrets:
+      - openai-api-key
     volumes:
       - ${HOME}/.akka/local:/root/.akka/local
       - ./poststart.sh:/poststart.sh
@@ -32,8 +34,7 @@ services:
       STANDALONE_SINGLE_NODE: true
       DB_HOST: "postgres-db"
       HTTP_PORT: "9000"
-      OPENAI_API_KEY: ${OPENAI_API_KEY}
 
-networks:
-  network:
-    driver: bridge
+secrets:
+  openai-api-key:
+    file: secret.openai-api-key

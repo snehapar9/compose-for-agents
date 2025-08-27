@@ -25,9 +25,6 @@ services:
       - 9000:9000
     secrets:
       - openai-api-key
-    volumes:
-      - ${HOME}/.akka/local:/root/.akka/local
-      - ./poststart.sh:/poststart.sh
     environment:
       # jvm -D properties can be added under this environment map (note: remove this comment when adding properties)
       # JAVA_TOOL_OPTIONS: -Dconfig.resource=/root/.akka/local/api-key.conf

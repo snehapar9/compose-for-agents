@@ -1,6 +1,8 @@
 # 🧠 Akka SDK - AI Agent Demo
 
-This project demonstrates how to build a chat agent using the [AI Agent component](https://doc.akka.io/java/agents.html) of the [Akka SDK](https://doc.akka.io/).
+This project demonstrates how to build a chat agent using the
+[AI Agent component](https://doc.akka.io/java/agents.html) of the
+[Akka SDK](https://doc.akka.io/).
 
 We use OpenAI as the LLM provider.
 
@@ -8,8 +10,8 @@ The following components are used:
 
 - `HttpEndpoint` to serve the UI and to process http requests.
 - `Agent` with a system message to set the context for the prompt.
-  - Durable storage session based on the username.
-  - Streaming interaction with the LLM.
+  + Durable storage session based on the username.
+  + Streaming interaction with the LLM.
 
 <p align="center">
   <img src="demo.gif"
@@ -22,12 +24,12 @@ The following components are used:
 
 ### Requirements
 
-+ Java 21
-+ [Maven]
-+ **[Docker Desktop] 4.43.0+ or [Docker Engine]** installed.
-+ **A laptop or workstation** (e.g., a MacBook).
-+ If you're using Docker Engine on Linux, ensure you have [Docker Compose] 2.38.1 or later installed.
-+ An [OpenAI API Key](https://platform.openai.com/api-keys) 🔑.
+- Java 21
+- [Maven]
+- **[Docker Desktop] 4.43.0+ or [Docker Engine]** installed.
+- **A laptop or workstation** (e.g., a MacBook).
+- If you're using Docker Engine on Linux, ensure you have [Docker Compose] 2.38.1 or later installed.
+- An [OpenAI API Key](https://platform.openai.com/api-keys) 🔑.
 
 ### Run the project
 
@@ -44,6 +46,7 @@ make build-and-run
 ```
 
 Alternatively, you can run:
+
 ```sh
 export OPENAI_API_KEY=
 mvn clean install -DskipTests -Pstandalone
@@ -56,12 +59,15 @@ Everything runs from the container. Open `http://localhost:9000` in your browser
 
 This demo was created as part of a [webinar we did](https://akka.io/blog/webinar-creating-certainty-in-the-age-of-agentic-ai).
 
-Feel free to take a look if you want to go further. The app was
+Feel free to take a look if you want to go further. The app was:
+
 - Created using vibe coding using Claude Desktop.
 - Exposing MCP endpoints.
 - Run locally with multiple instances forming a resilient cluster.
 
-To learn more, please visit our [getting started docs](https://doc.akka.io/getting-started/index.html) or check out [additional samples](https://github.com/akka-samples).
+To learn more, please visit our
+[getting started docs](https://doc.akka.io/getting-started/index.html)
+or check out [additional samples](https://github.com/akka-samples).
 
 # 🧹 Cleanup
 
@@ -97,9 +103,9 @@ end
 
 📎 Credits
 
-+ [Akka SDK Team]
-+ [Akks SDK samples](https://github.com/akka-samples)
-+ [Docker Compose]
+- [Akka SDK Team]
+- [Akks SDK samples](https://github.com/akka-samples)
+- [Docker Compose]
 
 [Maven]: http://maven.apache.org/
 [Akka SDK Team]: https://docs.akka.io/

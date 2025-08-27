@@ -8,7 +8,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     healthcheck:
-      test: [ 'CMD', 'pg_isready', "-q", "-d", "postgres", "-U", "postgres" ]
+      test: [CMD, pg_isready, -q, -d, postgres, -U, postgres]
       interval: 5s
       retries: 5
       start_period: 5s
@@ -22,7 +22,7 @@ services:
     depends_on:
       - postgres-db
     ports:
-      - "9000:9000"
+      - 9000:9000
     secrets:
       - openai-api-key
     volumes:
@@ -30,9 +30,9 @@ services:
       - ./poststart.sh:/poststart.sh
     environment:
       # jvm -D properties can be added under this environment map (note: remove this comment when adding properties)
-      #JAVA_TOOL_OPTIONS: -Dconfig.resource=/root/.akka/local/api-key.conf
+      # JAVA_TOOL_OPTIONS: -Dconfig.resource=/root/.akka/local/api-key.conf
       STANDALONE_SINGLE_NODE: true
-      DB_HOST: "postgres-db"
+      DB_HOST: postgres-db
       HTTP_PORT: "9000"
 
 secrets:

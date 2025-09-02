@@ -1,16 +1,18 @@
-FROM eclipse-temurin:21.0.1_12-jre-jammy
-COPY target/docker/helloworld-agent/latest/build/maven/* /maven/
+FROM registry.akka.io/helloworld-agent-deps:0.1
+
+COPY src /src
+COPY pom.xml /
+WORKDIR /
 
 COPY <<EOF entrypoint.sh
 #!/bin/sh
-
-
 if test -f /run/secrets/openai-api-key; then
     export OPENAI_API_KEY=$(cat /run/secrets/openai-api-key)
 fi
+exec mvn -o compile exec:java
 
-java -cp "/maven/*" -Dconfig.resource=runtime-standalone.conf kalix.runtime.AkkaRuntimeMain
 EOF
 
 RUN chmod +x entrypoint.sh
 ENTRYPOINT ["./entrypoint.sh"]
+

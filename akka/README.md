@@ -42,15 +42,8 @@ sk-...
 Then run:
 
 ```sh
-make build-and-run
-```
-
-Alternatively, you can run:
-
-```sh
 export OPENAI_API_KEY=
-mvn clean install -DskipTests -Pstandalone
-docker compose up
+docker compose up --build
 ```
 
 Everything runs from the container. Open `http://localhost:9000` in your browser to start to interact with the agent.

@@ -42,7 +42,6 @@ sk-...
 Then run:
 
 ```sh
-export OPENAI_API_KEY=
 docker compose up --build
 ```
 

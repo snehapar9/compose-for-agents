@@ -15,7 +15,7 @@ services:
         model_var: MODEL_RUNNER_MODEL
   mcp-gateway:
     # mcp-gateway secures your MCP servers
-    image: docker/mcp-gateway:latest
+    image: docker/mcp-gateway:v0.23.0
     use_api_socket: true
     ports:
       - 8811:8811
